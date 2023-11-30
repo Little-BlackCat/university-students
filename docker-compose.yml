@@ -1,0 +1,29 @@
+version: "3.9"
+services:
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=example
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=university-students
+    volumes:
+      - postgres-db:/data/db
+
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    depends_on:
+      - db
+    command: "npm run dev"
+
+volumes:
+  postgres-db:
