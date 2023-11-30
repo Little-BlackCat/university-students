@@ -13,11 +13,11 @@ This project is a Node.js application that manages university students' details 
 1. Clone the project from Git:
 
    ```bash
-   git clone 
+   git clone git@github.com:Little-BlackCat/university-students.git
    ```
 2. Navigate to the project directory.
     ```bash
-    cd 
+    cd university-students
     ```
 3. Build and start the project using Docker Compose:
     ```bash
